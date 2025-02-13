@@ -44,7 +44,7 @@ function Home() {
             </div>
             <h1 className="valentine-text">Hoy es 14 de Febrero !!</h1>
             <div className="content">
-                <img src="capis-corazon.png" alt="Capis corazón" className="capis-corazon" />
+                <img src="capi-carta.PNG" alt="Capis corazón" className="capis-corazon" />
                 <p className="above-letter-text">Esta carta es para ti 📩, ábrela!</p>
                 <div
                     className={`carta-container ${isOpening ? 'opening' : ''}`}
@@ -53,6 +53,7 @@ function Home() {
                     <img src="carta.png" alt="Carta" className="carta" />
                 </div>
             </div>
+            <audio src="/background.mp3" autoPlay loop />
         </div>
     );
 }
@@ -64,7 +65,10 @@ function App() {
             <Route path="/carta" element={<Carta />} />
             <Route path="/flor" element={<Flor />} />
         </Routes>
+
     );
 }
+
+
 
 export default App;

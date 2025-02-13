@@ -7,6 +7,7 @@
     border-radius: 15px; /* Esquinas redondeadas */
     background: #ffecec;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    animation: fadeIn 0.8s ease-out;
 }
 
 .carta-page h1 {
@@ -30,17 +31,29 @@
 
 .carta-page p {
     font-size: 1rem; /* Texto más pequeño */
-    margin: 10px 0;
+    margin: 10px;
     line-height: 1.4; /* Mejora la legibilidad en pantallas pequeñas */
 }
 
 .carta-image {
-    max-width: 100%; /* La imagen se adapta al contenedor */
-    height: auto;
+    max-width: 30%;
+    height: 70%;
     margin: 15px 0;
-    border-radius: 10px; /* Esquinas redondeadas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 10px;
+    animation: fadeIn 1s ease-out, float 3s ease-in-out infinite;
 }
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
 
 /* Contador de páginas */
 .page-counter {
@@ -54,7 +67,7 @@
     border-radius: 20px;
     margin: 10px auto;
     text-align: center;
-    width: 20%;
+    width: 10%;
 }
 
 .buttons-container {
@@ -76,10 +89,39 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+.next-button-flor {
+    background-color: #df436d;
+    color: white;
+    border: 2px solid transparent; /* Borde inicial transparente */
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(255, 113, 113, 0.8); /* Efecto glow */
+
+}
+
+.next-button-flor:hover {
+    background-color: #c1274c; /* Opcional, para cambiar el color de fondo */
+    border: 2px solid #fff; /* Borde brillante al pasar el ratón */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7); /* Efecto glow */
+}
 
 .prev-button:hover,
 .next-button:hover {
     background-color: #c1274c;
+}
+
+.flowers-container {
+    text-align: center;
+}
+
+.flowers-images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 /* Botón "Volver" */
@@ -106,6 +148,7 @@
     .carta-page {
         padding: 30px; /* Espaciado reducido para dispositivos más pequeños */
         max-width: 70%; /* Ancho relativo para ajustarse al dispositivo */
+        animation: fadeIn 0.8s ease-out;
     }
 
     .carta-page h1 {
@@ -130,7 +173,15 @@
         border-radius: 20px;
         margin: 10px auto;
         text-align: center;
-        width: 40%;
+        width: 30%;
+    }
+
+    .carta-image {
+        max-width: 45%; /* La imagen se adapta al contenedor */
+        height: 80%;
+        margin: 15px 0;
+        border-radius: 10px; /* Esquinas redondeadas */
+        animation: fadeIn 1s ease-out, float 3s ease-in-out infinite;
     }
 
 
@@ -143,3 +194,108 @@
 
 }
 
+.carta-images-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espacio entre las imágenes */
+    margin: 10px 0;
+}
+
+
+/* Estilos para el modal de confirmación */
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.confirm-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.confirm-content p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.confirm-buttons button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.confirm-yes {
+    background: #0771cf;
+    color: white;
+}
+
+.confirm-no {
+    background: #ff7575;
+    color: white;
+}
+
+.confirm-yes:hover {
+    background: #043e71;
+}
+
+.confirm-no:hover {
+    background: #d14444;
+}
+
+/* Actualización de los botones de navegación para usar íconos de flechas */
+/* (Puedes ajustar el padding, tamaño, etc., según prefieras) */
+.prev-button,
+.next-button {
+    background-color: #df436d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1.2rem; /* Aumenta el tamaño del ícono */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: #c1274c;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signature {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-style: italic;
+    color: #df436d;
+    white-space: pre-line; /* para interpretar \n como salto de línea */
+}
