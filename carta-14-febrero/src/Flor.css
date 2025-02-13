@@ -182,7 +182,21 @@
 
 .flor-text {
     margin-top: 20px;
-    font-size: 1.2em;
+    font-size: 0.9em;  /* Texto más pequeño */
     text-align: center;
-    color: #333;
+    color: #df436d;    /* O el color romántico que prefieras */
+    font-style: italic;
+    quotes: "“" "”";  /* Define las comillas */
+}
+
+.flor-text::before {
+    content: open-quote;
+    font-size: 1.2em;
+    margin-right: 0.2em;
+}
+
+.flor-text::after {
+    content: close-quote;
+    font-size: 1.2em;
+    margin-left: 0.2em;
 }
