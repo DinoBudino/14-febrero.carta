@@ -1,8 +1,9 @@
 import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Carta from './Carta';
 import Flor from "./Flor";
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'; // Íconos de música
 
 function Home() {
     const [isOpening, setIsOpening] = useState(false); // Controla si la carta se está abriendo
@@ -53,22 +54,55 @@ function Home() {
                     <img src="carta.png" alt="Carta" className="carta" />
                 </div>
             </div>
-            <audio src="/background.mp3" autoPlay loop />
         </div>
     );
 }
 
 function App() {
-    return (
-        <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/carta" element={<Carta />} />
-            <Route path="/flor" element={<Flor />} />
-        </Routes>
+    const [isMuted, setIsMuted] = useState(true); // Estado para controlar si el audio está silenciado
+    const audioRef = useRef(null); // Referencia para el elemento de audio
 
+    const toggleMusic = () => {
+        if (audioRef.current) {
+            if (isMuted) {
+                audioRef.current.play(); // Reproduce la música
+            } else {
+                audioRef.current.pause(); // Pausa la música
+            }
+            setIsMuted(!isMuted); // Cambia el estado de silencio
+        }
+    };
+
+    return (
+        <>
+            {/* Elemento de audio */}
+            <audio ref={audioRef} src="/instrumental.mp3" loop muted={isMuted} />
+
+            {/* Botón de música */}
+            <button
+                onClick={toggleMusic}
+                style={{
+                    position: 'fixed',
+                    top: '10px',
+                    right: '10px',
+                    zIndex: 1000,
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '24px',
+                    color: '#df436d', // Color del ícono
+                }}
+            >
+                {isMuted ? <FaVolumeMute /> : <FaVolumeUp />} {/* Ícono de música */}
+            </button>
+
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/carta" element={<Carta />} />
+                <Route path="/flor" element={<Flor />} />
+            </Routes>
+        </>
     );
 }
-
-
 
 export default App;
