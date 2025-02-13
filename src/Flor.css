@@ -156,8 +156,7 @@
     width: 100%;
     pointer-events: none; /* Evita que los pétalos interfieran con clics */
     z-index: 0;
-    height: 105vh;
-    background: #ffecec;
+    height: 60vh;
 }
 
 .petalo-fondo {
@@ -202,3 +201,32 @@
     font-size: 1.2em;
     margin-left: 0.2em;
 }
+
+@media (max-width: 768px) {
+    .flor-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 104vw; /* Ocupa todo el ancho de la ventana */
+        min-height: 105vh;
+        background: #ffecec;
+        overflow: hidden;
+    }
+
+
+    .flor-text {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 45px;
+        line-height: 1.2;
+    }
+
+    .back-button-flor {
+        padding: 8px 20px; /* Ajusta el tamaño del botón */
+        font-size: 0.9rem;
+        max-width: 200px; /* Fija un ancho máximo */
+    }
+}
+
