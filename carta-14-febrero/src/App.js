@@ -1,10 +1,24 @@
 import './App.css';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import Carta from './Carta';
+import Flor from "./Flor";
 
-function App() {
+function Home() {
+    const [isOpening, setIsOpening] = useState(false); // Controla si la carta se está abriendo
+    const navigate = useNavigate(); // Navegación programática
+
+    const handleCartaClick = () => {
+        setIsOpening(true); // Activa la animación de apertura
+        setTimeout(() => {
+            navigate('/carta'); // Redirige a la página de la carta después de la animación
+        }, 1000); // Duración de la animación en ms
+    };
+
     const renderHearts = () => {
         const hearts = [];
         for (let i = 0; i < 20; i++) {
-            const left = Math.random() * 100; // Posición aleatoria horizontal
+            const left = Math.random() * 100; // Posición horizontal aleatoria
             const delay = Math.random() * 5; // Retraso aleatorio
             const duration = 4 + Math.random() * 3; // Duración aleatoria
             hearts.push(
@@ -32,9 +46,24 @@ function App() {
             <div className="content">
                 <img src="capis-corazon.png" alt="Capis corazón" className="capis-corazon" />
                 <p className="above-letter-text">Esta carta es para ti 📩, ábrela!</p>
-                <img src="carta.png" alt="Carta" className="carta" />
+                <div
+                    className={`carta-container ${isOpening ? 'opening' : ''}`}
+                    onClick={handleCartaClick}
+                >
+                    <img src="carta.png" alt="Carta" className="carta" />
+                </div>
             </div>
         </div>
+    );
+}
+
+function App() {
+    return (
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/carta" element={<Carta />} />
+            <Route path="/flor" element={<Flor />} />
+        </Routes>
     );
 }
 

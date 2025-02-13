@@ -1,0 +1,145 @@
+.carta-page {
+    text-align: center;
+    margin: 30px auto; /* Margen reducido para pantallas pequeñas */
+    max-width: 70%; /* Ancho relativo para ajustarse al dispositivo */
+    padding: 15px; /* Espaciado reducido */
+    border: 2px solid #df436d;
+    border-radius: 15px; /* Esquinas redondeadas */
+    background: #ffecec;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.carta-page h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem; /* Tamaño reducido para pantallas pequeñas */
+    color: #df436d;
+    margin-bottom: 10px;
+}
+
+.carta-background {
+    position: fixed; /* El fondo queda fijo mientras se desplaza */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/public/fondo-carta.png') no-repeat center center;
+    background-size: cover; /* La imagen cubre todo el fondo */
+    z-index: -1; /* Envía el fondo detrás de todos los elementos */
+}
+
+
+.carta-page p {
+    font-size: 1rem; /* Texto más pequeño */
+    margin: 10px 0;
+    line-height: 1.4; /* Mejora la legibilidad en pantallas pequeñas */
+}
+
+.carta-image {
+    max-width: 100%; /* La imagen se adapta al contenedor */
+    height: auto;
+    margin: 15px 0;
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Contador de páginas */
+.page-counter {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem; /* Tamaño más pequeño */
+    font-weight: bold;
+    color: #df436d;
+    background: #fff;
+    border: 2px solid #df436d;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 10px auto;
+    text-align: center;
+    width: 20%;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaciado más pequeño entre los botones */
+    margin-top: 15px;
+}
+
+/* Botones de navegación */
+.prev-button,
+.next-button {
+    background-color: #df436d;
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Botones más pequeños */
+    font-size: 0.9rem; /* Texto más pequeño */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    background-color: #c1274c;
+}
+
+/* Botón "Volver" */
+.back-button {
+    display: block;
+    background-color: #ff7575;
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Botón más pequeño */
+    font-size: 0.9rem; /* Texto más pequeño */
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 15px auto;
+    max-width: 150px; /* Tamaño fijo para pantallas pequeñas */
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #d14444;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .carta-page {
+        padding: 30px; /* Espaciado reducido para dispositivos más pequeños */
+        max-width: 70%; /* Ancho relativo para ajustarse al dispositivo */
+    }
+
+    .carta-page h1 {
+        font-size: 1.2rem; /* Reducimos el tamaño del título */
+    }
+
+    .carta-page p {
+        font-size: 0.9rem; /* Texto más pequeño */
+    }
+
+    .page-counter {
+        font-size: 0.8rem; /* Contador más pequeño */
+    }
+
+    .page-counter {
+        font-size: 0.9rem; /* Tamaño más pequeño */
+        font-weight: bold;
+        color: #df436d;
+        background: #fff;
+        border: 2px solid #df436d;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin: 10px auto;
+        text-align: center;
+        width: 40%;
+    }
+
+
+    .prev-button,
+    .next-button,
+    .back-button {
+        font-size: 0.8rem; /* Botones más pequeños */
+        padding: 6px 12px; /* Ajustamos el relleno */
+    }
+
+}
+

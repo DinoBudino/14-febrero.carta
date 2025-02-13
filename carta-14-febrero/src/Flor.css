@@ -1,0 +1,146 @@
+:root {
+    --rot: 0deg; /* Valor por defecto para la variable rot */
+}
+
+.flor-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #ffecec;
+    overflow: hidden;
+}
+
+.flower {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    /* Si quieres que toda la flor “pulse” o se mueva, mantén estas líneas: */
+    transform: rotate(var(--rot));
+    animation: bloom 3s infinite;
+}
+
+.flower-center {
+    position: absolute;
+    top: 26px; /* Donde empieza */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: center-glow 3s ease-in-out infinite;
+}
+
+
+.stem {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 250px;
+    background: #4CAF50;
+    border-radius: 5px;
+}
+
+.leaf {
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    background: #4CAF50;
+    border-radius: 40%;
+    animation: leaf-float 2s ease-in-out infinite;
+}
+
+.leaf.left {
+    top: 150px;
+    left: 10px;
+    transform: rotate(-30deg);
+}
+
+.leaf.right {
+    top: 180px;
+    right: -30px;
+    transform: rotate(30deg);
+}
+
+/* Ajusta el contenedor de pétalos para que coincida con el centro */
+.petals {
+    position: absolute;
+    top: 10px;          /* En vez de 85px */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 120px;
+}
+
+
+.petal {
+    position: absolute;
+    width: 50px;
+    height: 75px;
+    background: #ff69b4;
+    border-radius: 40% 80% 40% 50%;
+    animation: petal-float 3s ease-in-out infinite;
+}
+
+/* En lugar de meter aquí el transform, usamos una variable --petal-rot */
+.p1 { --petal-rot: 0deg; }
+.p2 { --petal-rot: 72deg; }
+.p3 { --petal-rot: 144deg; }
+.p4 { --petal-rot: 216deg; }
+.p5 { --petal-rot: 288deg; }
+
+/* Centro de la flor, con la misma posición que el contenedor de pétalos */
+
+
+/* Animación de los pétalos: gira cada uno según --petal-rot y lo traslada un poco hacia arriba */
+@keyframes petal-float {
+    0%, 100% {
+        transform: rotate(calc(var(--rot) + var(--petal-rot))) translateY(-50px);
+    }
+    50% {
+        transform: rotate(calc(var(--rot) + var(--petal-rot))) translateY(-60px);
+    }
+}
+
+@keyframes leaf-float {
+    0%, 100% { transform: rotate(var(--rot)) translateY(0); }
+    50% { transform: rotate(var(--rot)) translateY(-5px); }
+}
+
+@keyframes center-glow {
+    0%, 100% { box-shadow: 0 0 10px #ffd700; }
+    50% { box-shadow: 0 0 20px #ffd700; }
+}
+
+@keyframes bloom {
+    0% {
+        transform: rotate(var(--rot)) scale(0.8);
+    }
+    50% {
+        transform: rotate(calc(var(--rot) + 15deg)) scale(1);
+    }
+    100% {
+        transform: rotate(var(--rot)) scale(0.8);
+    }
+}
+
+.back-button-flor {
+    position: absolute;
+    bottom: 30px;
+    background: #df436d;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-button-flor:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(223, 67, 109, 0.4);
+}

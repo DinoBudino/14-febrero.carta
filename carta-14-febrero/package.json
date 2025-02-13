@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animate.css": "^4.1.1",
     "cra-template": "1.2.0",
     "react": "^18.2.0",
+    "react-animated-css": "^1.2.1",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
     "web-vitals": "^4.2.4"
   },
