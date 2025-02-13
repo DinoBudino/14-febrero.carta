@@ -84,11 +84,13 @@
     color: white;
     border: none;
     padding: 8px 15px; /* Botones más pequeños */
-    font-size: 0.9rem; /* Texto más pequeño */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
+
+.prev-button:active, .next-button:active { transform: none; }
+
 .next-button-flor {
     background-color: #df436d;
     color: white;
@@ -173,7 +175,7 @@
         border-radius: 20px;
         margin: 10px auto;
         text-align: center;
-        width: 30%;
+        width: 40%;
     }
 
     .carta-image {
