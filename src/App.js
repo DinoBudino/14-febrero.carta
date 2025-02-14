@@ -67,13 +67,17 @@ function App() {
     const toggleMusic = () => {
         if (audioRef.current) {
             if (isMuted) {
-                audioRef.current.play(); // Reproduce la música
+                audioRef.current.muted = false; // Desactiva el silencio
+                audioRef.current.play().catch(error => {
+                    console.error("Error al intentar reproducir el audio:", error);
+                });
             } else {
-                audioRef.current.pause(); // Pausa la música
+                audioRef.current.pause();
             }
             setIsMuted(!isMuted); // Cambia el estado de silencio
         }
     };
+
 
     return (
         <>

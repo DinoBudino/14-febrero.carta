@@ -2,3 +2,8 @@
 from="/*"
 to="/index.html"
 status=200
+
+[[headers]]
+for = "/instrumental.mp3"
+[headers.values]
+Cache-Control = "public, max-age=3600"
