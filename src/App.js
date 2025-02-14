@@ -3,7 +3,9 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState, useRef } from 'react';
 import Carta from './Carta';
 import Flor from "./Flor";
-import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa'; // Íconos de música
+import Abrazo from "./Abrazo";
+import { FaVolumeMute, FaVolumeUp } from 'react-icons/fa';
+// Íconos de música
 
 function Home() {
     const [isOpening, setIsOpening] = useState(false); // Controla si la carta se está abriendo
@@ -100,6 +102,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/carta" element={<Carta />} />
                 <Route path="/flor" element={<Flor />} />
+                <Route path="/abrazo" element={<Abrazo />} /> {/* Nueva ruta */}
             </Routes>
         </>
     );

@@ -35,6 +35,13 @@ function Carta() {
             image: 'capis-corazon.png',
             signature: "Con mucho amor,\nDe: Zahir\nPara: Genevieve (Amochito ❤️)"
         },
+        {
+            title: 'Espera, todavía no te vayas',
+            text: 'No pudes irte sin tu regalo.',
+            image: null,
+            linkToAbrazo: true, // Identifica que esta página redirige a Abrazo
+        }
+
     ];
 
     // Función para ir a la siguiente página
@@ -43,6 +50,8 @@ function Carta() {
             setPage(page + 1);
         }
     };
+
+
 
     // Función para ir a la página anterior
     const prevPage = () => {
@@ -62,6 +71,8 @@ function Carta() {
                 {page === pages.length - 1 && pages[page].signature && (
                     <p className="signature">{pages[page].signature}</p>
                 )}
+
+
                 {page === 2 ? (
                     <div className="flowers-container">
                         <div className="flowers-images">
@@ -80,6 +91,28 @@ function Carta() {
                             🌸 Ver flor 🌸
                         </button>
                     </div>
+                ) : page === 5 ? (
+                    <div className="abrazo-container">
+                        <img
+                            src="/capifinal.PNG"
+                            alt="Abrazo"
+                            className="carta-image"
+                        />
+                        <button onClick={() => navigate('/abrazo')} className="next-button-abrazo">
+                            🤗 Recibe tu premio 🤗
+                        </button>
+                    </div>
+                ) : pages[page].images ? (
+                    <div className="carta-images-container">
+                        {pages[page].images.map((img, index) => (
+                            <img
+                                key={index}
+                                src={img}
+                                alt={`Imagen ${index + 1} página ${page + 1}`}
+                                className="carta-image"
+                            />
+                        ))}
+                    </div>
                 ) : (
                     pages[page].images ? (
                         <div className="carta-images-container">
@@ -93,6 +126,7 @@ function Carta() {
                             ))}
                         </div>
                     ) : (
+
                         pages[page].image && (
                             <img
                                 src={pages[page].image}
@@ -102,6 +136,8 @@ function Carta() {
                         )
                     )
                 )}
+
+
 
                 <div className="page-counter">Página {page + 1} de {pages.length}</div>
                 <div className="buttons-container">

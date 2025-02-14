@@ -104,6 +104,18 @@
 
 }
 
+.next-button-abrazo {
+    background-color: #df436d;
+    color: white;
+    border: 2px solid transparent; /* Borde inicial transparente */
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(255, 113, 113, 0.8); /* Efecto glow */
+}
+
 .next-button-flor:hover {
     background-color: #c1274c; /* Opcional, para cambiar el color de fondo */
     border: 2px solid #fff; /* Borde brillante al pasar el ratón */
@@ -144,6 +156,17 @@
 .back-button:hover {
     background-color: #d14444;
 }
+
+.abrazo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Ajusta el espacio entre los elementos */
+    margin: 0 auto;
+    padding: 20px;
+}
+
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
