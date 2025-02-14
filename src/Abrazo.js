@@ -29,6 +29,8 @@ function Abrazo() {
             >
                 Volver a la carta ❤️
             </button>
+            {/* Añadimos la firma */}
+            <p className="abrazo-signature">Feliz 14 de febrero, mi amorcito ❤️</p>
         </div>
     );
 }

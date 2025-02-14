@@ -29,6 +29,17 @@
     animation: love-fall 5s linear infinite;
 }
 
+.abrazo-container .abrazo-signature {
+    font-family: 'Poppins', sans-serif;
+    color: #df436d;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-style: italic;
+    text-align: center;
+    animation: fadeIn 1s ease-out; /* Efecto de aparición */
+}
+
+
 
 /* Variantes de tamaño para los corazones */
 .love-heart:nth-child(1) {

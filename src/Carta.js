@@ -37,7 +37,7 @@ function Carta() {
         },
         {
             title: 'Espera, todavía no te vayas',
-            text: 'No pudes irte sin tu regalo.',
+            text: 'No puedes irte aún sin reclamar tu regalo, presiona el botón que esta abajo.',
             image: null,
             linkToAbrazo: true, // Identifica que esta página redirige a Abrazo
         }
@@ -99,7 +99,7 @@ function Carta() {
                             className="carta-image"
                         />
                         <button onClick={() => navigate('/abrazo')} className="next-button-abrazo">
-                            🤗 Recibe tu premio 🤗
+                            🤗 Recibir regalo 🤗
                         </button>
                     </div>
                 ) : pages[page].images ? (
